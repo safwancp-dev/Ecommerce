@@ -143,8 +143,8 @@ const deleteproduct=async(req,res)=>{
 const getShopProducts=async(req,res)=>{
     try{
         const products=await Product.find().populate('category')
-        const isLoggedIn = !!req.cookies.token;
-        res.render('user/shop',{isLoggedIn,products})
+        
+        res.render('user/shop',{products})
     }catch(err){
         console.log('error loading shop products',err)
         res.status(500).send('error laoding shop page')
